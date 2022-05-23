@@ -1,5 +1,4 @@
 class Solution {
-    int result;
     int helper(vector<int>& nums1, vector<int>& nums2, int m, int n, vector<vector<int>>& dp) {
     if(m==0 || n==0) return 0;
     if(dp[m][n] != -1) return dp[m][n];
