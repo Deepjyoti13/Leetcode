@@ -12,7 +12,7 @@ class Solution {
 public:
     int smallestDivisor(vector<int>& piles, int h) {
         int res=0;
-        long long low = 1, high = 1000000000;
+        long long low = 1, high = 1000000;
         while(low<=high) {
             long long mid = low+(high-low)/2;
             if(isValid(piles, mid, h)) {
