@@ -1,6 +1,6 @@
 class Solution {
-    bool isValid(vector<int>& piles, long long mid, int h) {
-        long long k=0, sum=0;
+    bool isValid(vector<int>& piles, int mid, int h) {
+        int k=0, sum=0;
         for(int i: piles) {
             k+=i/mid;
             if(i%mid) k++;
@@ -12,11 +12,11 @@ class Solution {
 public:
     int smallestDivisor(vector<int>& piles, int h) {
         int res=0;
-        long long low = 1, high = 1000000;
+        int low = 1, high = 1000000;
         while(low<=high) {
-            long long mid = low+(high-low)/2;
+            int mid = low+(high-low)/2;
             if(isValid(piles, mid, h)) {
-                res = (int) mid;
+                res = mid;
                 high = mid-1;
             }
             else {
