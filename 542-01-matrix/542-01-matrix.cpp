@@ -14,7 +14,6 @@ public:
             }
         }
         while(!q.empty()) {
-            int size = q.size();
             vector<int> cell = q.front();
             q.pop();
             int i=cell[0], j=cell[1];
