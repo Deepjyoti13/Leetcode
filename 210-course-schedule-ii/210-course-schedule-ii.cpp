@@ -8,7 +8,7 @@ class Solution {
         return adjList;
     }
     
-    bool DFS(vector<vector<int>>& grid, int sv, int N, vector<int>& visited, stack<int>& order) {
+    bool DFS(vector<vector<int>>& grid, int sv, int N, vector<int>& visited, vector<int>& order) {
         visited[sv]=1;
         for(int i: grid[sv]) {
             if(visited[i]==1) return true;
@@ -16,26 +16,21 @@ class Solution {
                 if(DFS(grid, i, N, visited, order)) return true;
         }
         visited[sv]=2;
-        order.push(sv);
+        order.push_back(sv);
         return false;
     }
 public:
 vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites) {                         vector<vector<int>> grid = buildGraph(numCourses, prerequisites);    
         vector<int> visited(numCourses, 0);
 
-        stack<int> order;
+        vector<int> order;
         for(int i=0; i<numCourses; i++) {
             if(!visited[i]) {
                 if(DFS(grid, i, numCourses, visited, order))
                     return {};
             }
         }
-        vector<int> res;
-        for(int i=0; i<numCourses; i++)
-        {
-            res.push_back(order.top());
-            order.pop();
-        }
-        return res;
+        reverse(order.begin(), order.end());
+        return order;
     }
 };
