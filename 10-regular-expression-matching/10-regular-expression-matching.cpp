@@ -4,8 +4,8 @@ public:
         int M = p.length(), N=s.length();
         vector<vector<bool>> dp(M+1, vector<bool>(N+1, false));
         dp[0][0]=true;
-        for(int i=0; i<M; i++) {
-            if(p[i]=='*') dp[i+1][0]=dp[i-1][0];
+        for(int i=1; i<=M; i++) {
+            if(p[i-1]=='*') dp[i][0]=dp[i-2][0];
         }
         for(int i=1; i<=M; i++) {
             for(int j=1; j<=N; j++) {
