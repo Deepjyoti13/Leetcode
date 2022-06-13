@@ -13,10 +13,10 @@ class Solution {
 public:
     int rob(vector<int>& nums) {
         if(nums.size()==1) return nums[0];
-        vector<int> temp(nums.begin()+1, nums.end());
-        int A = helper(temp);
-        for(int i=0; i<nums.size()-1; i++) temp[i] = nums[i];
-        int B = helper(temp);
+        vector<int> tempA(nums.begin()+1, nums.end());
+        vector<int> tempB(nums.begin(), nums.end()-1);
+        int A = helper(tempA);
+        int B = helper(tempB);
         return max(A, B);
     }
 };
