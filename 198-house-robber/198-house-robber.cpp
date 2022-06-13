@@ -1,5 +1,5 @@
 class Solution {
-    int helper(vector<int>& nums, int N, vector<int>& dp) {
+    int helper(vector<int>& nums, int N, int* dp) {
         if(N==0) return 0;
         if(N==1) return nums[0];
         if(dp[N]!=-1) return dp[N];
@@ -8,7 +8,8 @@ class Solution {
 public:
     int rob(vector<int>& nums) {
         int N = nums.size();
-        vector<int> dp(N+1, -1);
+        int* dp = new int[N+1];
+        for(int i=0; i<=N; i++) dp[i]=-1;
         return helper(nums, N, dp);
     }
 };
