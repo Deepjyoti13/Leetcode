@@ -25,7 +25,6 @@ public:
                 TreeNode* front = q.front();
                 q.pop();
                 count?ans[temp-size-1]=front->val:ans[size]=front->val;
-                // ans.push_back(front->val);
                 if(front->right)
                     q.push(front->right);
                 if(front->left)
