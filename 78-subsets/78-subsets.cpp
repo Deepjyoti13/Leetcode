@@ -2,10 +2,7 @@ class Solution {
     vector<vector<int>> helper(vector<int>& nums, vector<vector<int>> res) {
         int N = nums.size();
         if(N==0) {
-            vector<vector<int>> t1;
-            vector<int> t2;
-            t1.push_back(t2);
-            return t1;
+            return {{}};
         }
         int curr = nums[0];
         nums.erase(nums.begin());
