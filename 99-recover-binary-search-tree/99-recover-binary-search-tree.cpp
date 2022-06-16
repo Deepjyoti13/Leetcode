@@ -34,8 +34,6 @@ class Solution {
     
 public:
     void recoverTree(TreeNode* root) {
-        // prev = new TreeNode(INT_MIN);
-        first = middle = last = NULL;
         inorder(root);
         if(first && last) swap(first->val, last->val);
         else if(first && middle) swap(first->val, middle->val);
