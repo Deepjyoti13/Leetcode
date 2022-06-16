@@ -13,29 +13,26 @@ class Solution {
 public:
     int widthOfBinaryTree(TreeNode* root) {
         if(!root) return 0;
-        // if(!root->left && !root->left) return 1;
         int mx = 0;
         if(!root) return 0;
-        queue<pair<TreeNode*, pair<long, long>>> todo;
-        map<long long, pair<long long, long long>> nodes;
-        todo.push({root, {1, 0}});
+        queue<pair<TreeNode*, long long>> todo;
+        todo.push({root, 0});
         while(!todo.empty()) {
-            long long size = todo.size();
-            long long mn = todo.front().second.first;
-            while(size--) {
+            int size = todo.size(), first, last;
+            int mn = todo.front().second;
+            for(int i=0; i<size; i++) {
                 auto front = todo.front();
                 todo.pop();
                 TreeNode* node = front.first;
-                long long height = front.second.first;
-                long long level = front.second.second;
-                height = height-mn;
-                nodes[level] = {min(nodes[level].first, height), max(nodes[level].first, height)};
-                mx = max(mx*1LL, nodes[level].second-nodes[level].first+1);
+                long long height = front.second-mn;
+                if(i==size-1) last = height;
+                if(i==0) first = height;
                 if(node->left)
-                    todo.push({node->left, {2*height, level+1}});
+                    todo.push({node->left, 2*height+1});
                 if(node->right)
-                    todo.push({node->right, {2*height+1, level+1}});
+                    todo.push({node->right, 2*height+2});
             }
+            mx = max(mx, last-first+1);
         }
         return mx;
     }
