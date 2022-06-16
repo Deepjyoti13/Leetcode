@@ -20,7 +20,7 @@ class Solution {
         return false;
     }
 public:
-vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites) {                         vector<vector<int>> grid = buildGraph(numCourses, prerequisites);    
+vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites) {                       vector<vector<int>> grid = buildGraph(numCourses, prerequisites);    
         vector<int> visited(numCourses, 0);
 
         vector<int> order;
