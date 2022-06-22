@@ -5,7 +5,7 @@ class Solution {
             return;
         }
         if(ind>N) return;
-        cout<<ind<<" "<<prev<<" "<<N<<endl;
+        // cout<<ind<<" "<<prev<<" "<<N<<endl;
         if(prev==-1 || nums[ind]!=nums[prev]) {
             ds.push_back(nums[ind]);
             helper(nums, ind+1, prev, N, ds, res);
