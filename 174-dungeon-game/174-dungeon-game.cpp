@@ -1,5 +1,8 @@
 class Solution {
-    int helper(vector<vector<int>>& dungeon, int M, int N, vector<vector<int>>& dp) {
+public:
+    int calculateMinimumHP(vector<vector<int>>& dungeon) {
+        int M = dungeon.size(), N = dungeon[0].size();
+        vector<vector<int>> dp(M, vector<int>(N, 0));
         dp[M-1][N-1] = min(0, dungeon[M-1][N-1]);
         for(int i=M-2; i>=0; i--) {
             dp[i][N-1] = dungeon[i][N-1]+dp[i+1][N-1]>=0?0:dungeon[i][N-1]+dp[i+1][N-1];
@@ -14,12 +17,6 @@ class Solution {
             }
         }
         return -dp[0][0]+1;
-    }
-public:
-    int calculateMinimumHP(vector<vector<int>>& dungeon) {
-        int M = dungeon.size(), N = dungeon[0].size();
-        vector<vector<int>> dp(M, vector<int>(N, 0));
-        return helper(dungeon, M, N, dp);
     }
 };
 
