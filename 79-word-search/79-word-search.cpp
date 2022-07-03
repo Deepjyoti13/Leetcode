@@ -3,7 +3,6 @@ class Solution {
         if(k==W) return true;
         if(i<0 || j<0 || i>=M || j>=N || k>W || board[i][j] == '0' || board[i][j]!=word[k])
             return false;
-        char ch = board[i][j];
         board[i][j] = '0';
         bool res =  DFS(board, word, i+1, j, k+1, M, N, W) ||
                     DFS(board, word, i, j+1, k+1, M, N, W) ||
