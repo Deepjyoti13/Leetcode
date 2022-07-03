@@ -1,5 +1,5 @@
 class Solution {
-    bool DFS(vector<vector<char>>& board, string word, int i, int j, int k, int M, int N, int W) {
+    bool DFS(vector<vector<char>>& board, string &word, int i, int j, int k, int M, int N, int W) {
         if(k==W) return true;
         if(i<0 || j<0 || i>=M || j>=N || k>W || board[i][j] == '0' || board[i][j]!=word[k])
             return false;
