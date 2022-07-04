@@ -20,7 +20,9 @@ public:
         unordered_map<string, vector<string>> seen;
         
         for(string& str: strs) {
-            seen[sortStr(str)].push_back(str);
+            string temp = str;
+            sort(temp.begin(), temp.end());
+            seen[temp].push_back(str);
         }
         
         vector<vector<string>> res;
