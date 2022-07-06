@@ -1,5 +1,5 @@
 class Solution {
-    bool checkBipartite(vector<vector<int>>& grid, int src, int N, vector<int> visited)     {
+    bool checkBipartite(vector<vector<int>>& grid, int src, int N, vector<int>& visited)     {
         queue<int> q;
         q.push(src);
         visited[src]=0;
