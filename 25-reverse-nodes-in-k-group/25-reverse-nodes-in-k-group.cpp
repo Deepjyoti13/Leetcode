@@ -12,15 +12,14 @@ class Solution {
 public:
     ListNode* reverseKGroup(ListNode* head, int k) {
         if(!head || k==1) return head;
-        int count = 0;
-        ListNode *temp = head;
-        while(temp) {
-            temp = temp->next;
-            count++;
-        }
         ListNode *dummy = new ListNode();
         dummy->next = head;
-        ListNode *prev = dummy, *curr = dummy, *next = dummy;
+        ListNode *prev = dummy, *curr = dummy, *next;
+        int count = 0;
+        while(curr->next) {
+            curr = curr->next;
+            count++;
+        }
         while(count>=k) {
             curr = prev->next;
             next = curr->next;
