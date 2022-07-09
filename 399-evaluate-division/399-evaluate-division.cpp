@@ -19,7 +19,7 @@ class Solution {
        }
         return adjList;
     }
-    double dfs(unordered_map<string, vector<Node*>>& adjList, string& src, string& dest, set<string> seen) {
+    double dfs(unordered_map<string, vector<Node*>>& adjList, string& src, string& dest, unordered_set<string> seen) {
         if(!adjList.count(src) || !adjList.count(dest)) return -1.0;
         if(src == dest) return 1.00;
         seen.insert(src);
@@ -39,12 +39,14 @@ public:
     vector<double> calcEquation(vector<vector<string>>& equations, vector<double>& values, vector<vector<string>>& queries) {
         unordered_map<string, vector<Node*>> adjList = buildGraph(equations, values);
         int N = queries.size();
+        unordered_set<string> seen;
         vector<double> res(N, -1.0);
         for(int i=0; i<N; i++) {
             string src = queries[i][0];
             string dest = queries[i][1];
-            double ans = dfs(adjList, src, dest, set<string>());
+            double ans = dfs(adjList, src, dest, seen);
             res[i] = ans;
+            seen = {};
         }
         return res;
     }
