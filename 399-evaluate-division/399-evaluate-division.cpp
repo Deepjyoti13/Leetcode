@@ -19,7 +19,7 @@ class Solution {
        }
         return adjList;
     }
-    double dfs(unordered_map<string, vector<Node*>>& adjList, string& src, string& dest, unordered_set<string> seen) {
+    double dfs(unordered_map<string, vector<Node*>>& adjList, string& src, string& dest, unordered_set<string>& seen) {
         if(!adjList.count(src) || !adjList.count(dest)) return -1.0;
         if(src == dest) return 1.00;
         seen.insert(src);
