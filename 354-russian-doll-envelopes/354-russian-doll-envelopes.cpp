@@ -7,20 +7,17 @@ public:
             return a[0]<b[0];
         });
         // for(int i=0; i<N; i++) cout<<envelopes[i][0]<<" "<<envelopes[i][1]<<endl;
-        vector<int> nums;
         vector<int> dp;
-        for(auto v: envelopes) nums.push_back(v[1]);
-        // for(auto& i: nums) cout<<i<<" ";
-        dp.push_back(nums[0]);
+        dp.push_back(envelopes[0][1]);
         int l=1;
         for(int i=1; i<N; i++) {
-            if(nums[i]>dp.back()) {
-                dp.push_back(nums[i]);
+            if(envelopes[i][1]>dp.back()) {
+                dp.push_back(envelopes[i][1]);
                 l++;
             }
             else {
-                int index = lower_bound(dp.begin(), dp.end(), nums[i]) - dp.begin();
-                dp[index] = nums[i];
+                int index = lower_bound(dp.begin(), dp.end(), envelopes[i][1]) - dp.begin();
+                dp[index] = envelopes[i][1];
             }
         }
         return l;
