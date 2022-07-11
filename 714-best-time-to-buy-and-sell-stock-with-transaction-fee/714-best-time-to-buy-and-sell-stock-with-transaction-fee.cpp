@@ -8,8 +8,8 @@ public:
         calc.second = 0;
         // dp[0].first = -1*prices[0];
         // dp[0].second = 0;
+        pair<int, int> curr;
         for(int i=1; i<N; i++) {
-            pair<int, int> curr;
             curr.first=max(calc.first, calc.second-prices[i]);
             curr.second=max(calc.second, calc.first+prices[i]-fee);
             calc = curr;
