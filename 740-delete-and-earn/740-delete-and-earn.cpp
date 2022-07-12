@@ -1,14 +1,20 @@
 class Solution {
 public:
     int deleteAndEarn(vector<int>& nums) {
-        vector<int> bucket(10001);
+        map<int, int> bucket;
         for (int num : nums)
             bucket[num] += num;
         int prev1 = 0, prev2 = 0;
-        for(int i=0; i<10001; i++) {
-            int curr = max(bucket[i]+prev2, prev1);
-            prev2=prev1;
-            prev1=curr;
+        for(auto i: bucket) {
+            if(bucket.find(i.first-1)==bucket.end()) {
+                prev2=prev1;
+                prev1+=i.second;
+            }
+            else {
+                int curr = max(i.second+prev2, prev1);
+                prev2=prev1;
+                prev1=curr;    
+            }
         }
         return prev1;
     }
