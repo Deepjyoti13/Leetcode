@@ -3,11 +3,6 @@ public:
     vector<vector<int>> matrixBlockSum(vector<vector<int>>& mat, int K) {
         vector<vector<int>> prefix_sum = prefixSum(mat);
         vector<vector<int>> answer = prefix_sum;
-        for(auto v: prefix_sum) {
-            for(auto i: v)
-                cout<<i<<" ";
-            cout<<endl;
-        }
         
         for (int i = 0; i < mat.size(); i++) {
             for (int j = 0; j < mat[0].size(); j++) {
