@@ -1,6 +1,5 @@
 class Solution {
     void dfs(unordered_map<int, vector<int>>& graph, vector<int>& lowest, int parent, int node, vector<vector<int>>& res, int nextId) {
-        // visited[node] = true;
         lowest[node] = nextId;
         nextId++;
         int curr = lowest[node];
