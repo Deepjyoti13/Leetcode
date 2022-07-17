@@ -1,12 +1,12 @@
 class Solution {
     void dfs(unordered_map<int, vector<int>>& graph, vector<int>& lowest, int parent, int node, vector<vector<int>>& res, vector<bool>& visited, int nextId) {
-        visited[node] = true;
+        // visited[node] = true;
         lowest[node] = nextId;
         nextId++;
         int curr = lowest[node];
         for(auto i: graph[node]) {
             if(i==parent) continue;
-            if(!visited[i])
+            if(lowest[i]==-1)
                 dfs(graph, lowest, node, i, res, visited, nextId);
             lowest[node] = min(lowest[node], lowest[i]);
             if(curr<lowest[i])
