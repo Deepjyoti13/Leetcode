@@ -23,6 +23,7 @@ public:
                 if(--mapS[s[left]]<mapT[s[left]])
                     count--;
                 left++;
+                
             }
         }
         string res="";
