@@ -1,6 +1,6 @@
 class Solution {
 public:
-    string minWindow(string s, string t) {
+    string minWindow(string& s, string& t) {
         unordered_map<char, int> mapS, mapT;
         for(int i=0; i<t.length(); i++)
             mapT[t[i]]++;
