@@ -10,7 +10,6 @@ public:
         if(nums[high]<nums[high-1]) return nums[high];
         while(low<=high) {
             int mid = low+(high-low)/2;
-            cout<<mid<<endl;
             if(nums[mid-1]>nums[mid]) return nums[mid];
             if(nums[low]<=nums[mid]) {
                 low = mid;
