@@ -1,7 +1,7 @@
 class Solution {
 public:
     int countDigitOne(int n) {
-        long long c=-1, temp=n, sum=0, exp, x, y, t;
+        long long c=-1, temp=n, sum=0, exp, t;
         while(n) {
             c++;
             t=n%10;
@@ -9,14 +9,11 @@ public:
             if(t==0) continue;
             else {
                 exp = pow(10, c);
-                x=t*c*exp/10;
-                y=0;
-                if(t==1) {
-                    y=temp%exp+1;
-                }
-                else y=exp;
-                sum=sum+x+y;
-                // cout<<t<<" "<<y<<" "<<x<<" "<<c<<" "<<sum<<endl;
+                if(t==1)
+                    sum=sum+temp%exp+1+t*c*exp/10;
+                else
+                    sum=sum+exp+t*c*exp/10;
+                // cout<<t<<" "<<x<<" "<<y<<" "<<c<<" "<<sum<<endl;
             }
         }
         return sum;
