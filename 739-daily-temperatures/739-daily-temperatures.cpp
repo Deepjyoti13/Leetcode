@@ -6,7 +6,6 @@ public:
         stack<int> stk;
         for(int i=n-1; i>=0; i--) {
             if(stk.empty()) {
-                stk.push(i);
                 res[i]=0;
             }
             else {
@@ -18,8 +17,8 @@ public:
                 else {
                     res[i]=stk.top()-i;
                 }
-                stk.push(i);
             }
+            stk.push(i);
         }
         return res;
     }
