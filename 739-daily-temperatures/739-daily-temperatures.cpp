@@ -11,12 +11,7 @@ public:
             else {
                 while(!stk.empty() && temperatures[stk.top()]<=temperatures[i])
                     stk.pop();
-                if(stk.empty()) {
-                    res[i]=0;
-                }
-                else {
-                    res[i]=stk.top()-i;
-                }
+                res[i]=stk.empty()?0:stk.top()-i;
             }
             stk.push(i);
         }
