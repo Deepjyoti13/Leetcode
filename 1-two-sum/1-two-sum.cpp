@@ -11,8 +11,7 @@ public:
                 answer.push_back(i);
                 answer.push_back(cache[needed_num]);
                 return answer;
-            }
-            
+            }   
         }
         return answer;
     }
